@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using eCommerce.Models;
 
 namespace eCommerce.Controllers
 {
@@ -10,9 +11,15 @@ namespace eCommerce.Controllers
     {
         public IActionResult Index()
         {
+            Banco b = new Banco();
+            Catalogo c = b.lista();
+            ViewData["Lista"] = c;
+            return View(c);
+        }
+        public IActionResult Teste()
+        {
             return View();
         }
-
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
