@@ -47,6 +47,7 @@ namespace eCommerce.Models
             Produto p2 = new Produto(3,"Bicicleta","Entre na nova moda", 2000);
             Catalogo resp = new Catalogo();
             resp.lista.Add(p);
+            return resp;
         }
     }
 }
