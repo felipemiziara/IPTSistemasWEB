@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "eCommerce"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-eCommerce-0a087f9b-f94c-4ff5-b4e4-ba17665a96ae;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
