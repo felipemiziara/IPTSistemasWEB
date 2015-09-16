@@ -5,6 +5,7 @@ namespace eCommerce.Models
 
         public Catalogo lista()
         {
+            /*
             System.Data.OleDb.OleDbConnection conn;
             
             OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
@@ -40,6 +41,12 @@ namespace eCommerce.Models
                 return null;
             }
             return resp;
+            */
+            Produto p = new Produto(1,"Livro","1000 páginas", 50);
+            Produto p1 = new Produto(2,"Camista","Em 3 tamanhos", 100);
+            Produto p2 = new Produto(3,"Bicicleta","Entre na nova moda", 2000);
+            Catalogo resp = new Catalogo();
+            resp.lista.Add(p);
         }
     }
 }
