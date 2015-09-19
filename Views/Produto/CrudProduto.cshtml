@@ -1,0 +1,15 @@
+@model eCommerce.Models.Produto
+
+<form asp-controller="Produto" asp-action="NovoProduto">
+<div class="row">
+    <div class="col-md-3">
+       <ul>
+        <li>Nome do produto: <input asp-for="@Model.nome"/></li>
+        <li>Preço <input asp-for="@Model.preco"/></li>
+        <li>Detalhes <input asp-for="@Model.detalhes"/></li>
+        <li>Link Para Imagem <input asp-for="@Model.imglink"/></li>
+        <li><input type="submit" value="Salvar"/></li>
+       </ul>
+    </div>
+</div>
+</form>

@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-
+using Microsoft.Data.Entity;
 
 namespace eCommerce.Models
 {
-    public class Catalogo
+    public class Catalogo:DbContext
     {
-        public List<Produto> lista = new List<Produto>();
+        public List<Produto> lista = new List<Produto> ();
+        
     }
 }

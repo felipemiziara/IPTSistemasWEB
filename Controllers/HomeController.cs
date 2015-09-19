@@ -1,19 +1,23 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using eCommerce.Models;
 
 namespace eCommerce.Controllers
 {
+    //[Route("api/[controller]")]
     public class HomeController : Controller
     {
+        private readonly CatalogoContext _dbContext;
+ 
+        public HomeController(CatalogoContext dbContext) 
+        {
+            _dbContext = dbContext;
+        }
+ 
         public IActionResult Index()
         {
-            Banco b = new Banco();
-            Catalogo c = b.lista();
-            ViewData["Lista"] = c;
+            Catalogo c = new Catalogo();
+            c.lista = _dbContext.Produtos.ToList();
             return View(c);
         }
         public IActionResult Teste()

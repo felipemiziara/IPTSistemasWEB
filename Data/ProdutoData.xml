@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+<Produtos>  
+<Produto>  
+<Id>1</Id>  
+<nome>Livro</nome>  
+<preco>30.00</preco>  
+<detalhes>1000 páginas</detalhes>
+</Produto>  
+<Produto>  
+<Id>2</Id>  
+<nome>Camisas</nome>  
+<preco>20.00</preco>
+<detalhes>Em 3 tamanhos</detalhes>
+</Produto>  
+<Produto>  
+<Id>3</Id>  
+<nome>Bicicleta</nome>  
+<preco>100.00</preco>  
+<detalhes>Entre na nova moda</detalhes>
+</Produto>  
+</Produtos>

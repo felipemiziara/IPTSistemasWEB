@@ -19,7 +19,8 @@ using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
-using Microsoft.Framework.Runtime;
+using Microsoft.Dnx.Runtime;
+
 using eCommerce.Models;
 using eCommerce.Services;
 
@@ -53,9 +54,11 @@ namespace eCommerce
             // Add Entity Framework services to the services container.
             // In this release there is no data provider for non Windows environment so this app
             // uses the InMemory Store. This is coming in a future release of the Framework.
+            Console.WriteLine("Passei aqui");
             services.AddEntityFramework()
                 .AddInMemoryDatabase()
-                .AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase());
+                .AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase())
+                .AddDbContext<CatalogoContext>(options => options.UseInMemoryDatabase());
 
             // Use the following code to register EntityFramework services for SqlServer to the container.
             //services.AddEntityFramework()
@@ -139,6 +142,24 @@ namespace eCommerce
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
+            CreateSampleData(app.ApplicationServices).Wait();
         }
+        
+        private static async Task CreateSampleData(IServiceProvider applicationServices)
+		{
+			using (var dbContext = applicationServices.GetService<CatalogoContext>())
+			{
+				// add some movies
+				List<Produto> produtos = new List<Produto>
+				{
+					new Produto {id=1,nome="Livro", detalhes="1000 páginas", preco=50.45, imglink="https://okl1-scene7.insnw.net/is/image/OKL/fullbleed_41229?$story-full-bleed$"},
+                    new Produto {id=2,nome="Camisas", detalhes="Em 3 tamanhos", preco=134.45, imglink="https://okl-scene7.insnw.net/is/image/OKL/fullbleed_53434?$story-full-bleed$"},
+                    new Produto {id=3,nome="Bicicleta", detalhes="Entre na nova moda", preco=2005.95, imglink="https://okl-scene7.insnw.net/is/image/OKL/fullbleed_39719?$story-full-bleed$"},
+				};
+				produtos.ForEach(m => dbContext.Produtos.Add(m));
+
+                dbContext.SaveChanges();
+			}
+		}
     }
 }
