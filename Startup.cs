@@ -54,11 +54,11 @@ namespace eCommerce
             // Add Entity Framework services to the services container.
             // In this release there is no data provider for non Windows environment so this app
             // uses the InMemory Store. This is coming in a future release of the Framework.
-            Console.WriteLine("Passei aqui");
             services.AddEntityFramework()
                 .AddInMemoryDatabase()
                 .AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase())
-                .AddDbContext<CatalogoContext>(options => options.UseInMemoryDatabase());
+                .AddDbContext<CatalogoContext>(options => options.UseInMemoryDatabase())
+                .AddDbContext<ProdutoContext>(options => options.UseInMemoryDatabase());
 
             // Use the following code to register EntityFramework services for SqlServer to the container.
             //services.AddEntityFramework()

@@ -1,0 +1,33 @@
+@model eCommerce.Models.Catalogo
+<br><br>
+<style>
+    table, tr, td{
+        border: 1px solid black;
+    }
+    .tableTitle{
+        font-weight: bold;
+    }
+</style>
+
+<a asp-controller="Produto" asp-action="CrudProduto"><img height="64" width="64" src="~/images/new.png"/></a>
+
+<table>
+    <tr>
+        <td class="tableTitle">ID</td>
+        <td class="tableTitle">Nome</td>
+        <td class="tableTitle">Preço</td>
+        <td class="tableTitle">Detalhes</td>
+        <td class="tableTitle">Link Imagem</td>
+        <td class="tableTitle">Editar</td>
+    </tr>        
+@foreach(var produto in Model.lista){
+    <tr>
+        <td>@produto.id</td>
+        <td>@produto.nome</td>
+        <td>@produto.preco</td>
+        <td>@produto.detalhes</td>
+        <td>@produto.imglink</td>
+        <td> <a asp-controller="Produto" asp-action="EditProduto" asp-route-id="@produto.id"><img src="~/images/edit.png" height="32" width="32"/></a>
+    </tr>
+}
+</table>
