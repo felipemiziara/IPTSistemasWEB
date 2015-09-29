@@ -58,6 +58,7 @@ namespace eCommerce
                 .AddInMemoryDatabase()
                 .AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase())
                 .AddDbContext<CatalogoContext>(options => options.UseInMemoryDatabase())
+                .AddDbContext<CarrinhoContext>(options => options.UseInMemoryDatabase())
                 .AddDbContext<ProdutoContext>(options => options.UseInMemoryDatabase());
 
             // Use the following code to register EntityFramework services for SqlServer to the container.

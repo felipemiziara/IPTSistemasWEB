@@ -18,7 +18,7 @@
             <li>@Model.detalhes</li>
             <li>Preço: R$@Model.preco</li>
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=398939">Adicionar ao Carrinho</a></li>
-            <li><a asp-controller="Catalogo" asp-action="Adicionar" asp-route-id="@Model.id">Add Carrinho</a></li>
+            <li><a asp-controller="Carrinho" asp-action="Adicionar" asp-route-nome="@Model.nome" asp-route-preco="@Model.preco">Add Carrinho</a></li>
         </ul>
         </ul>
     </div>
